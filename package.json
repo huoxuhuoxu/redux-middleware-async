@@ -1,6 +1,6 @@
 {
   "name": "react-middleware-async",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "redux异步处理模块",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,7 @@
     "async",
     "promise"
   ],
+  "repository": "https://github.com/huoxuhuoxu/redux-middleware-async",
   "author": "huoxu_huoxu",
   "license": "ISC"
 }

@@ -2,6 +2,10 @@
 
 #### redux处理异步动作的中间件
 
+#### 安装
+	
+	npm install redux-middleware-async --save
+
 ###### Using middleware
 	
 	import { applyMiddleware } from 'redux';
