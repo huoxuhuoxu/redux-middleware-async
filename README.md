@@ -9,7 +9,7 @@
 ###### Using middleware
 	
 	import { applyMiddleware } from 'redux';
-	import writeOverDispatch form 'redux-middleware-async';
+	import writeOverDispatch from 'redux-middleware-async';
 	applyMiddleware(writeOverDispatch));
 	
 	

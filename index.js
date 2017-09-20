@@ -1,6 +1,6 @@
 // FSA
 
-const STORE_DISPATCH = store => next => async (action) => {
+const writeOverDispatch = store => next => async (action) => {
 	let { async, before, fail } = action;
 	delete action['fail'];
 	delete action['before'];
@@ -23,5 +23,4 @@ const STORE_DISPATCH = store => next => async (action) => {
 };
 
 
-
-export STORE_DISPATCH;
+export default writeOverDispatch;
