@@ -1,10 +1,10 @@
 {
   "name": "react-middleware-async",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "redux异步处理模块",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel index.js --out-file main.js --presets=es2015,stage-0"
   },
   "keywords": [
     "redux",
@@ -13,5 +13,10 @@
   ],
   "repository": "https://github.com/huoxuhuoxu/redux-middleware-async",
   "author": "huoxu_huoxu",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1"
+  }
 }

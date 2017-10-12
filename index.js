@@ -6,7 +6,9 @@ const writeOverDispatch = store => next => async (action) => {
 	delete action['before'];
 	delete action['async'];
 	if(async && (async instanceof Promise)){
-		before ? next(before()) : null;
+        if(before){
+            next(before());
+        }
 		await new Promise(resolve => {
 			async.then(data =>{
 				action = { ...action, async: data};
