@@ -7,10 +7,13 @@
 	npm install redux-middleware-async --save
 
 ###### Using middleware
-	
+	import { createStore, combineReducers, applyMiddleware } from "redux";
 	import { applyMiddleware } from 'redux';
 	import writeOverDispatch from 'redux-middleware-async';
-	applyMiddleware(writeOverDispatch));
+    var REDUCERS = combineReducers({
+        ...
+    });
+	var store = createStore(REDUCERS, {test: true}, applyMiddleware(writeOverDispatch));
 	
 	
 ##### 参数
