@@ -8,7 +8,6 @@
 
 ###### Using middleware
 	import { createStore, combineReducers, applyMiddleware } from "redux";
-	import { applyMiddleware } from 'redux';
 	import writeOverDispatch from 'redux-middleware-async';
     var REDUCERS = combineReducers({
         ...
