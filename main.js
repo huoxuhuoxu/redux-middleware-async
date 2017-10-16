@@ -4,68 +4,60 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _regenerator = require('babel-runtime/regenerator');
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _regenerator2 = _interopRequireDefault(_regenerator);
-
-var _extends2 = require('babel-runtime/helpers/extends');
-
-var _extends3 = _interopRequireDefault(_extends2);
-
-var _promise = require('babel-runtime/core-js/promise');
-
-var _promise2 = _interopRequireDefault(_promise);
-
-var _asyncToGenerator2 = require('babel-runtime/helpers/asyncToGenerator');
-
-var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 // FSA
 
 var writeOverDispatch = function writeOverDispatch(store) {
 	return function (next) {
 		return function () {
-			var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(action) {
-				var _action, async, before, fail;
+			var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(action) {
+				var _action, async, before, fail, after, bAsync;
 
-				return _regenerator2.default.wrap(function _callee$(_context) {
+				return regeneratorRuntime.wrap(function _callee$(_context) {
 					while (1) {
 						switch (_context.prev = _context.next) {
 							case 0:
-								_action = action, async = _action.async, before = _action.before, fail = _action.fail;
+								_action = action, async = _action.async, before = _action.before, fail = _action.fail, after = _action.after;
+								bAsync = false;
 
 								delete action['fail'];
 								delete action['before'];
 								delete action['async'];
+								delete action['after'];
 
-								if (!(async && async instanceof _promise2.default)) {
-									_context.next = 8;
+								if (!(async && async instanceof Promise)) {
+									_context.next = 11;
 									break;
 								}
 
+								bAsync = true;
 								if (before) {
 									next(before());
 								}
-								_context.next = 8;
-								return new _promise2.default(function (resolve) {
+								_context.next = 11;
+								return new Promise(function (resolve) {
 									async.then(function (data) {
-										action = (0, _extends3.default)({}, action, { async: data });
+										action = _extends({}, action, { async: data });
 										resolve(action);
 									}, function (err) {
-										action = fail ? (0, _extends3.default)({}, action, fail()) : (0, _extends3.default)({}, action, { async: 'fail' });
+										action = fail ? _extends({}, action, fail()) : _extends({}, action, { async: 'fail' });
 										resolve(action);
 									}).catch(function (err) {
 										throw new Error("Error:" + err.toString());
 									});
 								});
 
-							case 8:
+							case 11:
 								;
 								next(action);
+								if (after && bAsync) {
+									next(after);
+								};
 
-							case 10:
+							case 15:
 							case 'end':
 								return _context.stop();
 						}

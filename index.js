@@ -1,11 +1,14 @@
 // FSA
 
 const writeOverDispatch = store => next => async (action) => {
-	let { async, before, fail } = action;
+	let { async, before, fail, after } = action;
+	let bAsync = false;
 	delete action['fail'];
 	delete action['before'];
 	delete action['async'];
+	delete action['after'];
 	if(async && (async instanceof Promise)){
+		bAsync = true;
         if(before){
             next(before());
         }
@@ -22,6 +25,9 @@ const writeOverDispatch = store => next => async (action) => {
 		});
 	};
 	next(action);
+	if(after && bAsync){
+		next(after);
+	};
 };
 
 
