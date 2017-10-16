@@ -54,7 +54,7 @@ var writeOverDispatch = function writeOverDispatch(store) {
 								;
 								next(action);
 								if (after && bAsync) {
-									next(after);
+									next(after());
 								};
 
 							case 15:
