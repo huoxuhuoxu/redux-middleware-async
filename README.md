@@ -1,10 +1,10 @@
-## redux-middleware-async
+## react-middleware-async
 
 #### redux处理异步动作的中间件
 
 #### 安装
 	
-	npm install redux-middleware-async --save
+	npm install react-middleware-async --save
 
 ###### Using middleware
 	import { createStore, combineReducers, applyMiddleware } from "redux";
