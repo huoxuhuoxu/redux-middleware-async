@@ -43,7 +43,7 @@ var writeOverDispatch = function writeOverDispatch(store) {
 								delete action['after'];
 
 								if (!(async && async instanceof _promise2.default)) {
-									_context.next = 11;
+									_context.next = 13;
 									break;
 								}
 
@@ -65,14 +65,21 @@ var writeOverDispatch = function writeOverDispatch(store) {
 								});
 
 							case 11:
-								;
+								_context.next = 14;
+								break;
+
+							case 13:
 								action.async = async;
+
+							case 14:
+								;
+
 								next(action);
 								if (after && bAsync) {
 									next(after());
 								};
 
-							case 16:
+							case 18:
 							case 'end':
 								return _context.stop();
 						}

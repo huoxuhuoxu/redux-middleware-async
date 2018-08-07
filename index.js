@@ -23,8 +23,10 @@ const writeOverDispatch = store => next => async (action) => {
 				throw new Error("Error:" + err.toString());
 			});
 		});
+	} else {
+		action.async = async;
 	};
-	action.async = async;
+	
 	next(action);
 	if(after && bAsync){
 		next(after());
