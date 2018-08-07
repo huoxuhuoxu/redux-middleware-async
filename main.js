@@ -66,12 +66,13 @@ var writeOverDispatch = function writeOverDispatch(store) {
 
 							case 11:
 								;
+								action.async = async;
 								next(action);
 								if (after && bAsync) {
 									next(after());
 								};
 
-							case 15:
+							case 16:
 							case 'end':
 								return _context.stop();
 						}

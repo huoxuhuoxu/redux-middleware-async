@@ -24,6 +24,7 @@ const writeOverDispatch = store => next => async (action) => {
 			});
 		});
 	};
+	action.async = async;
 	next(action);
 	if(after && bAsync){
 		next(after());
